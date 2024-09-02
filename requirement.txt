@@ -1,0 +1,15 @@
+numpy==1.23.1
+torch==1.10.1
+yaml
+scipy==1.9.1
+trimesh==4.4.3
+opencv_contrib_python==3.4.2.16
+matplotlib==3.0.2
+transforms3d==0.3.1
+scikit_image==0.13.1
+setuptools==41.0.0
+cffi==1.11.5
+plyfile==0.6
+glumpy==1.0.6
+pillow==8.2.0
+itertools
