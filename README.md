@@ -5,7 +5,7 @@
 
 该项目包括点云去噪、轮廓提取、瓶身点云切割、点云配准、基于高斯牛顿迭代法求瓶身点云尺寸、基于最小二乘法求瓶塞点云尺寸等
 
-<p align="center"><img src="./pics/4.jpg"/></p>
+<p align="center"><img src="./pics/4.jpg" width="540"/></p>
 
 ### Required environment
 
@@ -46,19 +46,29 @@ python compute_arc.py
 
 2、算法实现过程：
 （1.1）原始点云与坐标轴相对关系（数据来源：SCAN）：
- ![](pics/1.png)
+
+ <p align="center"><img src="./pics/1.png" width="540"/></p>
+ 
 （1.2）将点云数据转换至坐标系原点，得到转换关系tf1，并基于高度差对点云去噪，得到瓶底点云：
- ![](pics/2.jpg)
+
+ <p align="center"><img src="./pics/2.jpg" width="540"/></p>
+ 
 （1.3）将瓶底点云转换至坐标系原点，得到转换关系tf2：
- ![](pics/3.jpg)
+
+ <p align="center"><img src="./pics/3.jpg" width="540"/></p>
+ 
 （1.4）基于第二步和第三步得到的转换关系tf1和tf2，将原始点云数据进行转换，使其瓶底点云以坐标系原点为中心：
- ![](pics/4.jpg)
+
+ <p align="center"><img src="./pics/4.jpg" width="540"/></p>
+ 
 （1.5）将X轴方向的单位向量（1，0，0）作为裁切平面的法线，设置裁切平面的x值进行瓶身圆弧切割：
- ![](pics/5.jpg)
 
-1. Download 3D models and our pre-trained checkpoints first.
+ <p align="center"><img src="./pics/5.jpg" width="540"/></p>
 
-2. run the following script
-    ```Shell
-    ./experiments/scripts/demo.sh
-    ```
+（1.6）高斯牛顿迭代法拟合圆弧，结果如下：
+
+ <p align="center"><img src="./pics/6.jpg" width="540"/></p>
+ 
+ 半径：10.8441mm（直径为21.688mm）
+ 真实直径：21.94mm（误差为 -0.252mm）
+
